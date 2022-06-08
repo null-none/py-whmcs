@@ -57,3 +57,4 @@ for response in whmcs.paginated_call(
 
 [call()]: https://py-whmcs.readthedocs.io/en/latest/whmcspy.html#whmcspy.api.WHMCS.call
 [paginated_call()]: https://py-whmcs.readthedocs.io/en/latest/whmcspy.html#whmcspy.api.WHMCS.paginated_call
+
