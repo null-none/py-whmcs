@@ -288,7 +288,7 @@ class WHMCS:
         self,
         clientid,
         domains=None,
-        paymentmethod="banktransfer",
+        paymentmethod="stripe",
         products=None,
         **params,
     ):
