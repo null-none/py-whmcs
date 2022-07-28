@@ -1,8 +1,8 @@
 import whmcspy
 
-WHMCS_URL = "http://whmcs.test/includes/api.php"
-WHMCS_IDENTIFIER = "yTJMf0PHFM0ViIAIR9mlfBKnjXzdtcO3"
-WHMCS_SECRET = "fAvWuAMWJNY8KBZlHDRhiO4i8bqTPGMb"
+WHMCS_URL = "http://50.3.80.92/includes/api.php"
+WHMCS_IDENTIFIER = "lhQSOIW4LeGUxolKWSNb8ZCkTnb5uPsm"
+WHMCS_SECRET = "TKOYRUU7yjV409gvhGCzz8aNxK2oWd8F"
 
 domain = "whmcs.test"
 whmcs = whmcspy.WHMCS(WHMCS_URL, WHMCS_IDENTIFIER, WHMCS_SECRET)
@@ -18,10 +18,15 @@ client = whmcs.add_client(
     phonenumber=1232131321,
     password2="password2"
 )
+whmcs.update_client(
+    clientid=client,
+    firstname="firstname",
+    lastname="lastname",   
+)
 product = {
 	"id": whmcs.add_product(name="test", gid=1),
 	"domain": domain
 }
-order = whmcs.add_order(clientid=1, products=[product])
+order = whmcs.add_order(clientid=client, products=[product])
 whmcs.cancel_order(order["orderid"])
 

@@ -605,6 +605,22 @@ class WHMCS:
         response = self.call("updateClientProduct", **params)
         return response
 
+    def update_client(self, **params):
+        """
+        Updates a client with the passed parameters.
+
+        Args:
+            **params: Additional params.
+
+        Hint:
+            For additional params, see the official API docs:
+            https://developers.whmcs.com/api-reference/updateclient/
+
+        """
+        response = self.call("UpdateClient", **params)
+        return response
+    
+
     def domain_whois(self, domain, **params):
         """
         Get the whois information domain of a domain.
