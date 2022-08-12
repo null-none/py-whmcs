@@ -402,7 +402,7 @@ class WHMCS:
                     continue
                 yield domain
 
-    def get_clients_products(self, active=None, productid=None, **params):
+    def get_clients_products(self, active=None, productid=None, serviceid=None, **params):
         """
         Get client products.
 
@@ -424,6 +424,8 @@ class WHMCS:
         """
         if productid:
             params["pid"] = productid
+        if serviceid:
+            params["serviceid"] = serviceid
         for response in self.paginated_call("GetClientsProducts", **params):
             for product in response["products"]["product"]:
                 if _is_inactive(product, active):
