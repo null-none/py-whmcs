@@ -671,3 +671,16 @@ class WHMCS:
         for response in self.paginated_call("GetClients", **params):
             for client in response["orders"]["client"]:
                 yield client
+
+    def get_client_details(self, clientid):
+        """
+        Obtain the Clients Details for a specific client
+        Args:
+            clientid: The client id to obtain the details for. $clientid or $email is required
+        Hint:
+            For additional params, see the official API docs:
+            https://developers.whmcs.com/api-reference/getclientsdetails/
+        """
+        response = self.call("GetClientsDetails", clientid=clientid, stats=True)
+        return response
+
