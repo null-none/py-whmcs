@@ -684,3 +684,16 @@ class WHMCS:
         response = self.call("GetClientsDetails", clientid=clientid, stats=True)
         return response
 
+
+    def get_notes(self, **params):
+        """
+        Obtain tickets matching the passed criteria
+
+        Hint:
+            For additional params, see the official API docs:
+            https://developers.whmcs.com/api-reference/gettickets/
+
+        """
+        for response in self.paginated_call("GetTickets", **params):
+            for order in response["tickets"]["ticket"]:
+                yield order
